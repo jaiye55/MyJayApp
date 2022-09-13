@@ -15,7 +15,7 @@ sh "${mvnHome}/bin/mvn sonar:sonar -f MyJayApp/pom.xml"
 }
 stage ('DEV Deploy')  {
       echo "deploying to DEV Env "
-      deploy adapters: [tomcat9(credentialsId: 'da622b00-f7f3-4a3a-b4fc-985bdfe6000b', path: '', url: 'http://54.205.157.155:8080/')], contextPath: null, war: '**/*.war'
+      deploy adapters: [tomcat9(credentialsId: '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', path: '', url: 'http://54.205.157.155:8080/')], contextPath: null, war: '**/*.war'
     }
 stage ('DEV Approve') {
 echo "Taking approval from DEV"
