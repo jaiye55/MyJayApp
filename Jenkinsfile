@@ -9,6 +9,7 @@ stage ('Build') {
 sh "${mvnHome}/bin/mvn clean install -f MyJayApp/pom.xml"
 }
 stage ('Code Quality Scan') {
+   def scannerHome = tool 'SonarScanner 4.0'; {
 withSonarQubeEnv('SonarQube') {
 sh "${mvnHome}/bin/mvn sonar:sonar -f MyJayApp/pom.xml"
    }
