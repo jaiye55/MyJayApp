@@ -6,11 +6,11 @@ stage ('Checkout') {
 checkout scm
 }
 stage ('Build') {
-sh "${mvnHome}/bin/mvn clean install -f MyAwesomeApp/pom.xml"
+sh "${mvnHome}/bin/mvn clean install -f MyJayApp/pom.xml"
 }
 stage ('Code Quality Scan') {
 withSonarQubeEnv('SonarQube') {
-sh "${mvnHome}/bin/mvn sonar:sonar -f MyAwesomeApp/pom.xml"
+sh "${mvnHome}/bin/mvn sonar:sonar -f MyJayApp/pom.xml"
    }
 }
 stage ('DEV Deploy')  {
@@ -26,7 +26,7 @@ input message: 'Do you want to deploy?', submitter: 'admin'
 stage ('Slack Notification') {
 
 
-    slackSend(channel:'myawesomeapp', message: "Job is successful, here is the info -  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+    slackSend(channel:'myjayeapp', message: "Job is successful, here is the info -  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 
   }
 
