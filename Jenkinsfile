@@ -6,11 +6,11 @@ stage ('Checkout') {
 checkout scm
 }
 stage ('Build') {
-sh "${mvnHome}/bin/mvn clean install -f MyJayApp/pom.xml"
+sh "${mvnHome}/bin/mvn clean install"
 }
 stage ('Code Quality Scan') {
 withSonarQubeEnv('SonarQube') {
-sh "${mvnHome}/bin/mvn sonar:sonar -f MyJayApp/pom.xml"
+sh "${mvnHome}/bin/mvn sonar:sonar"
    }
 }
 stage ('DEV Deploy')  {
