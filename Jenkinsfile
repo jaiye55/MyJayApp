@@ -1,6 +1,6 @@
 node {
   stage('SCM') {
-    git 'https://github.com/foo/bar.git'
+    git 'https://github.com/jaiye55/MyJayApp.git'
   }
   stage('SonarQube analysis') {
     withSonarQubeEnv(credentialsId: 'f225455e-ea59-40fa-8af7-08176e86507a', installationName: 'My SonarQube Server') { // You can override the credential to be used
